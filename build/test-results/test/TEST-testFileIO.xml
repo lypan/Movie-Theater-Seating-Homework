@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testFileIO" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-11-18T12:24:32" hostname="LiangYus-MacBook-Pro.local" time="0.013">
+<testsuite name="testFileIO" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-11-18T12:38:54" hostname="LiangYus-MacBook-Pro.local" time="0.011">
   <properties/>
-  <testcase name="writeFile" classname="testFileIO" time="0.011"/>
+  <testcase name="writeFile" classname="testFileIO" time="0.009"/>
   <testcase name="readFile" classname="testFileIO" time="0.0"/>
-  <testcase name="readFileWithoutFileName" classname="testFileIO" time="0.001"/>
+  <testcase name="readFileWithoutFileName" classname="testFileIO" time="0.0"/>
   <testcase name="writeFileWithoutContent" classname="testFileIO" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

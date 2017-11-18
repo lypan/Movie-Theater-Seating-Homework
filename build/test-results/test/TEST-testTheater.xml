@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testTheater" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-11-18T12:24:32" hostname="LiangYus-MacBook-Pro.local" time="0.0">
+<testsuite name="testTheater" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-11-18T12:38:54" hostname="LiangYus-MacBook-Pro.local" time="0.001">
   <properties/>
-  <testcase name="theaterListConstructor" classname="testTheater" time="0.0"/>
+  <testcase name="theaterListConstructor" classname="testTheater" time="0.001"/>
   <testcase name="theaterConstructor" classname="testTheater" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

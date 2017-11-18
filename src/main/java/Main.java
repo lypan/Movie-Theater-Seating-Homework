@@ -9,17 +9,15 @@ public class Main {
         String outputFile = "output.txt";
 
         if(args.length == 2){
-            if(args[0].trim().compareTo("--input") == 0)inputFile = args[1];
+            if(args[0].trim().equals("--input"))inputFile = args[1];
             else System.out.println("Wrong option! Use default option instead!");
         }
         else if(args.length == 4) {
-            if(args[0].trim().compareTo("--input") == 0 && args[0].trim().compareTo("--output") == 0){
+            if(args[0].trim().equals("--input") && args[2].trim().equals("--output")){
                 inputFile = args[1];
                 outputFile = args[3];
             }
             else {
-                System.out.println(args[1]);
-                System.out.println(args[3]);
                 System.out.println("Wrong option! Use default option instead!");
             }
         }

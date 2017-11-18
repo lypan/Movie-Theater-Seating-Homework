@@ -27,17 +27,18 @@ gradle clean build
 
 java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main
 ```
-##### If you want to add input file and output file
+##### If you want to add input file and output file, put the input file in the `files` directory and add the `inputFileName` and `outputFileName`. Output file will be in the `files` directory.
+
 ```
 gradle clean build
 
-java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main --input inputFilePath --output outputFilePath
+java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main --input inputFileName --output outputFileName
 ```
 ##### For test
 ```
 gradle clean test
 ```
 #### Design Pattern
-Dependency inversion: use interface to delegate work, and high-level class not depends on low-level class directly. So, it is very easy to extend functions in the future.
+*Dependency inversion*: use interface to delegate work, and high-level class not depends on low-level class directly. So, it is very easy to extend functions in the future.
 
-Singleton: Use singleton fore better resource management and ensure that only one main service is running for the entire time.
+*Singleton*: Use singleton fore better resource management and ensure that only one main service is running for the entire time.
