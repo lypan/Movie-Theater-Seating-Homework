@@ -6,6 +6,15 @@ I use the modified bin packing algorithm and make three assumption.
 2. Each group must be close together, so seats must be in rectangle or square.
 3. The seats in the middle range will let customers more satisfactory, so allocate seats from middle first.
 
+#### Special features
+1. A complete simulation of backend system with response and request communication.
+2. Great system design that obey OOP design and very easily to extend function without modifying original code.
+3. Theater now can be any size and the group won't be divided and will have the best seats.
+
+#### Special features
+1. First Fit Decreasing uses at most (4M + 1)/3 bins if the optimal is M.
+2. Time complexity: since I sort the request by seat number first and then traverse all seats in the theater. If N requests and M seats, total time is O(NlogN + M)
+
 #### How to run the console
 1. Go into the root folder of the repository.
 2. Then run the following command.
