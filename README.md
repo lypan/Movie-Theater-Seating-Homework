@@ -18,22 +18,22 @@ I use the modified bin packing algorithm and make three assumption.
 #### How to run the console
 1. Go into the root folder of the repository.
 2. Then run the following command.
-#####For service
+##### For service
 Input and output file will in the 'files' directory.
 If omitted inputFilePath or outputFilePath, will use the default filePath(in the files directory).
-#####Default
+##### Default
 ```
 gradle clean build
 
 java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main
 ```
-#####If you want to add input file and output file
+##### If you want to add input file and output file
 ```
 gradle clean build
 
 java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main --input inputFilePath --output outputFilePath
 ```
-#####For test
+##### For test
 ```
 gradle clean test
 ```
