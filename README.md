@@ -12,28 +12,28 @@ I use the modified bin packing algorithm and make three assumption.
 3. Theater now can be any size and the group won't be divided and will have the best seats.
 
 #### Algorithm analysis
-1. First Fit Decreasing uses at most (4M + 1)/3 bins if the optimal is M.
-2. Time complexity: since I sort the request by seat number first and then traverse all seats in the theater. If N requests and M seats, total time is O(NlogN + M)
+1. First Fit Decreasing uses at most `(4M + 1)/3` bins if the optimal is `M`.
+2. Time complexity: since I sort the request by seat number first and then traverse all seats in the theater. If `N` requests and `M` seats, total time is `O(NlogN + M)`
 
 #### How to run the console
 1. Go into the root folder of the repository.
 2. Then run the following command.
-For service
+#####For service
 Input and output file will in the 'files' directory.
 If omitted inputFilePath or outputFilePath, will use the default filePath(in the files directory).
-Default
+#####Default
 ```
 gradle clean build
 
 java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main
 ```
-If you want to add input file and output file
+#####If you want to add input file and output file
 ```
 gradle clean build
 
 java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main --input inputFilePath --output outputFilePath
 ```
-For test
+#####For test
 ```
 gradle clean test
 ```
