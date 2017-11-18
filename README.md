@@ -16,14 +16,12 @@ If omitted inputFilePath or outputFilePath, will use the default filePath(in the
 gradle clean build
 
 java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main --input inputFilePath --output outputFilePath
-
 ```
 For test
-
 ```
 gradle clean test
-
 ```
 #### Design Pattern
-Inversion Control: use interface to delegate work, so it is very easy to extend functions in the future.
-Singleton: Only one main service for the entire whole time.
+Dependency inversion: use interface to delegate work, and high-level class not depends on low-level class directly. So, it is very easy to extend functions in the future.
+
+Singleton: Use singleton fore better resource management and ensure that only one main service is running for the entire time.
