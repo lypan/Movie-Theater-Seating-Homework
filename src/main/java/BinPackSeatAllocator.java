@@ -1,5 +1,8 @@
 import java.util.*;
-
+/**
+ * A seat allocator using my modified first-fit decreasing algorithm
+ * @author liang yu pan
+ */
 public class BinPackSeatAllocator implements ISeatAllocator {
     private MovieTheater movieTheater;
     private List<ReservationEntry> requestEntryList = new ArrayList<>();
@@ -8,6 +11,9 @@ public class BinPackSeatAllocator implements ISeatAllocator {
     private int seatCount = 0;
 
 
+    /**
+     * Allocate seats to theater seats
+     */
     @Override
     public void allocate() {
         if(requestEntryList == null || requestEntryList.size() == 0)return;
@@ -87,7 +93,13 @@ public class BinPackSeatAllocator implements ISeatAllocator {
         }
 
     }
-
+    /**
+     * Set MovieTheater object information and file's input data to allocator
+     * @param movieTheater
+     *          - An object store information about movie theater
+     * @param inputData
+     *          - Each line of a file
+     */
     @Override
     public void setData(MovieTheater movieTheater, List<String> inputData) {
         requestEntryList = new ArrayList<>();
@@ -119,7 +131,9 @@ public class BinPackSeatAllocator implements ISeatAllocator {
         Collections.sort(requestEntryList, (ReservationEntry r1, ReservationEntry r2) -> Integer.compare(r2.seatNumber, r1.seatNumber));
     }
 
-
+    /**
+     * A helper function to show result and for debug conveniently
+     */
     @Override
     public void printData() {
         SeatPool seatPool = this.movieTheater.getSeatPool();
@@ -143,12 +157,15 @@ public class BinPackSeatAllocator implements ISeatAllocator {
             }
         }
     }
-
+    /**
+     * A helper function to return the result as a list of string
+     */
     @Override
     public List<String> getResult() {
         List<String> result = new ArrayList<>();
         Map<String, String> map = new TreeMap<>();
 
+        // use tree map to save related seat to the same request id
         SeatPool seatPool = movieTheater.seatPool;
         for(int i = 0; i < seatPool.getSeatRowSize(); i ++) {
             SeatRow seatRow = seatPool.getSeatRow(i);
