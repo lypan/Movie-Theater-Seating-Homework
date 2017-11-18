@@ -17,7 +17,6 @@ public class MainService {
 
 
     private MainService() {
-        mainService = getInstance();
     }
     /**
      * Get the only one mainservice by singleton

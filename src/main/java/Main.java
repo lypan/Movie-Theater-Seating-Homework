@@ -18,6 +18,8 @@ public class Main {
                 outputFile = args[3];
             }
             else {
+                System.out.println(args[1]);
+                System.out.println(args[3]);
                 System.out.println("Wrong option! Use default option instead!");
             }
         }
@@ -33,7 +35,9 @@ public class Main {
         int theaterID = 0;
         String type = "batch";
         String inputPath = baseDir + inputFile;
+        System.out.println(inputPath);
         String outputPath = baseDir + outputFile;
+        System.out.println(outputPath);
         int seatRowSize = 20;
         int seatColSize = 10;
 

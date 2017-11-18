@@ -11,7 +11,7 @@ I use the modified bin packing algorithm and make three assumption.
 2. Great system design that obey OOP design and very easily to extend function without modifying original code.
 3. Theater now can be any size and the group won't be divided and will have the best seats.
 
-#### Special features
+#### Algorithm analysis
 1. First Fit Decreasing uses at most (4M + 1)/3 bins if the optimal is M.
 2. Time complexity: since I sort the request by seat number first and then traverse all seats in the theater. If N requests and M seats, total time is O(NlogN + M)
 
@@ -21,6 +21,13 @@ I use the modified bin packing algorithm and make three assumption.
 For service
 Input and output file will in the 'files' directory.
 If omitted inputFilePath or outputFilePath, will use the default filePath(in the files directory).
+Default
+```
+gradle clean build
+
+java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main
+```
+If you want to add input file and output file
 ```
 gradle clean build
 
