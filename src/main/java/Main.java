@@ -2,7 +2,20 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // declare variables
+        System.out.println("Command: --input inputFilePath --output outputFilePath");
+        // parse args
+//        System.out.println(args.length);
+
+        String baseDir = "files/";
+        String inputFile = "input.txt";
+        String outputFile = "output.txt";
+
+        if(args.length == 2)inputFile = args[1];
+        else if(args.length == 4) {
+            inputFile = args[1];
+            outputFile = args[3];
+        }
+            // declare variables
         MainService ms = MainService.getInstance();
         IBaseIO bio = new FileIO();
         IBaseRequestHandler requestHandler = new AllocateSeatRequestHandler();
@@ -11,9 +24,6 @@ public class Main {
         AllocateSeatResponse seatResponse = new AllocateSeatResponse();
         ISeatAllocator seatAllocator = new BinPackSeatAllocator();
         MovieTheaterList mtlist = new MovieTheaterList();
-        String baseDir = "files/";
-        String inputFile = "input.txt";
-        String outputFile = "output.txt";
         int theaterID = 0;
         String type = "batch";
         String inputPath = baseDir + inputFile;
@@ -42,6 +52,6 @@ public class Main {
         ms.calculateSeats();
         seatResponse = ms.getResponse();
         ms.writeResult();
-
     }
+
 }
