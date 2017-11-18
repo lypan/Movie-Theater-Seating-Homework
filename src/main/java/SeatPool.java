@@ -5,7 +5,7 @@ public class SeatPool {
 
     public SeatPool(int row, int col) {
         for(int i = 0; i < row; i ++) {
-            SeatRow seatRow = new SeatRow(i, col);
+            SeatRow seatRow = new SeatRow(i);
             String type = "normal";
             Boolean occupied = false;
             for(int j = 0; j < col; j ++) {

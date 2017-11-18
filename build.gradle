@@ -11,11 +11,12 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.+'
 }
 
 test {
     //we want display the following test events
     testLogging {
-        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+        events "PASSED", "FAILED"
     }
 }

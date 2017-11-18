@@ -15,4 +15,8 @@ public class MovieTheaterList {
     public MovieTheater getMovieTheaterByID(int movieTheaderID) {
         return theaterList.get(movieTheaderID);
     }
+
+    public int getMovieTheaterListSize() {
+        return theaterList.size();
+    }
 }

@@ -59,6 +59,8 @@ public class BinPackSeatAllocator implements ISeatAllocator {
 
         // if the whole theater is not all full, move the whole seats around the center
         // since center is most people's preference when choosing seats
+
+        // correct rowIdx from last loop
         if(rowIndex == MAX_ROW){
             rowIndex --;
             occupiedRow --;
@@ -66,10 +68,12 @@ public class BinPackSeatAllocator implements ISeatAllocator {
         else if(toRight && colIndex == 0 && movieTheater.seatPool.getSeatRow(rowIndex).getSeat(colIndex).reservationID == 0 )occupiedRow --;
         else if(!toRight && colIndex == MAX_COL - 1 && movieTheater.seatPool.getSeatRow(rowIndex).getSeat(colIndex).reservationID == 0 )occupiedRow --;
 
+        // calculate how many rows need to move current center into theater center
         int occupiedCenter = occupiedRow / 2;
         int rowCenter = MAX_ROW / 2;
         int offset = rowCenter - occupiedCenter;
 
+        // move seats
         int countLine = 0;
         int backRowindex = occupiedRow - 1;
         while(offset > 0 && countLine < occupiedRow) {
@@ -92,8 +96,8 @@ public class BinPackSeatAllocator implements ISeatAllocator {
         this.data = inputData;
         seatCount = 0;
 
-        // valid data, first serve first come
-        // request must less than movie theater size
+        // check valid data
+        // gather requests by reqest sequence until theater cannot fit in anymore
         for(int i = 0; i < data.size(); i ++) {
             String line = data.get(i).trim();
             String[] tokens = line.split(" ");
@@ -110,7 +114,8 @@ public class BinPackSeatAllocator implements ISeatAllocator {
                 inValidRequestList.add(new ReservationEntry(requestID, seatNumber));
             }
         }
-        // decreasing order
+        // sort requests by its seat number size in decreasing order
+        // because I use the modified bin pack first fit decreasing algorithm
         Collections.sort(requestEntryList, (ReservationEntry r1, ReservationEntry r2) -> Integer.compare(r2.seatNumber, r1.seatNumber));
     }
 
@@ -137,10 +142,6 @@ public class BinPackSeatAllocator implements ISeatAllocator {
                 System.out.println("Request: " + requestID + ", SeatNumber: " + seatNumber);
             }
         }
-
-
-
-
     }
 
     @Override
@@ -155,19 +156,14 @@ public class BinPackSeatAllocator implements ISeatAllocator {
                 Seat seat = seatRow.getSeat(j);
                 int reservationID = seat.reservationID;
                 String seatName = seat.name;
+
                 if(reservationID != 0) {
                     String key = "";
-
-                    if(reservationID < 10) {
-                        key = "R00" + String.valueOf(reservationID);
-                    }
-                    else if(reservationID < 100) {
-                        key = "R0" + String.valueOf(reservationID);
-                    }
-                    else {
-                        key = "R" + String.valueOf(reservationID);
-                    }
                     String value = "";
+
+                    if(reservationID < 10)key = "R00" + String.valueOf(reservationID);
+                    else if(reservationID < 100)key = "R0" + String.valueOf(reservationID);
+                    else key = "R" + String.valueOf(reservationID);
 
                     if(!map.containsKey(key)) {
                         map.put(key, value);
@@ -178,6 +174,7 @@ public class BinPackSeatAllocator implements ISeatAllocator {
             }
         }
 
+        // iterate the tree hashmap to get result by request order number
         for(Map.Entry<String, String> entry : map.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();

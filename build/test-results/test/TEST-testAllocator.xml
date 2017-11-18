@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testAllocator" tests="10" skipped="0" failures="0" errors="0" timestamp="2017-11-18T11:45:43" hostname="LiangYus-MacBook-Pro.local" time="0.018">
+  <properties/>
+  <testcase name="testSingleRequestBelowOneRowSize" classname="testAllocator" time="0.005"/>
+  <testcase name="testTwoRequestEqualAllSeatsSize" classname="testAllocator" time="0.001"/>
+  <testcase name="testTwoRequestEqualOneRowSize" classname="testAllocator" time="0.0"/>
+  <testcase name="testSingleRequestEqualOneRowSize" classname="testAllocator" time="0.001"/>
+  <testcase name="testSingleRequestEqualAllSeatsSize" classname="testAllocator" time="0.001"/>
+  <testcase name="testTwoRequestLargerOneRowSize" classname="testAllocator" time="0.002"/>
+  <testcase name="testSingleRequestLargerOneRowSize" classname="testAllocator" time="0.001"/>
+  <testcase name="testTwoRequestLessOneRowSize" classname="testAllocator" time="0.0"/>
+  <testcase name="testTwoRequestLargerAllSeatsSize" classname="testAllocator" time="0.0"/>
+  <testcase name="testSingleRequestLargerAllSeatsSize" classname="testAllocator" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

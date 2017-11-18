@@ -4,16 +4,22 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Command: --input inputFilePath --output outputFilePath");
         // parse args
-//        System.out.println(args.length);
-
         String baseDir = "files/";
         String inputFile = "input.txt";
         String outputFile = "output.txt";
 
-        if(args.length == 2)inputFile = args[1];
+        if(args.length == 2){
+            if(args[0].trim().compareTo("--input") == 0)inputFile = args[1];
+            else System.out.println("Wrong option! Use default option instead!");
+        }
         else if(args.length == 4) {
-            inputFile = args[1];
-            outputFile = args[3];
+            if(args[0].trim().compareTo("--input") == 0 && args[0].trim().compareTo("--output") == 0){
+                inputFile = args[1];
+                outputFile = args[3];
+            }
+            else {
+                System.out.println("Wrong option! Use default option instead!");
+            }
         }
             // declare variables
         MainService ms = MainService.getInstance();
@@ -28,7 +34,8 @@ public class Main {
         String type = "batch";
         String inputPath = baseDir + inputFile;
         String outputPath = baseDir + outputFile;
-
+        int seatRowSize = 20;
+        int seatColSize = 10;
 
         // set states
         ms.setFileIO(bio);
@@ -38,7 +45,7 @@ public class Main {
 
 
         // dummy database
-        MovieTheater mt1 = new MovieTheater("MT1", 10, 20);
+        MovieTheater mt1 = new MovieTheater("MT1", seatRowSize, seatColSize);
         mtlist.addMovieTheater(mt1);
         ms.setMovieTheater(mtlist);
 
@@ -46,7 +53,6 @@ public class Main {
         // simulate real request
         seatRequest.setData(theaterID, type, inputPath, outputPath);
 //        ms.setConfig(new Config(inputFile, outputFile));
-
 
         ms.setRequest(seatRequest);
         ms.calculateSeats();

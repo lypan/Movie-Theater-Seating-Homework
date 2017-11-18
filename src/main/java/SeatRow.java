@@ -3,11 +3,9 @@ import java.util.ArrayList;
 public class SeatRow {
     private ArrayList<Seat> seats = new ArrayList<>();
     public int seatRowID;
-    public int emptySize;
 
-    public SeatRow(int seatRowID, int emptySize) {
+    public SeatRow(int seatRowID) {
         this.seatRowID = seatRowID;
-        this.emptySize = emptySize;
     }
 
     public int getSeatsSize() {
