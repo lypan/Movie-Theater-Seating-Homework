@@ -39,6 +39,6 @@ java -cp build/libs/Walmart-1.0-SNAPSHOT.jar Main --input inputFileName --output
 gradle clean test
 ```
 #### Design Pattern
-*Dependency inversion*: use interface to delegate work, and high-level class not depends on low-level class directly. So, it is very easy to extend functions in the future.
+`Dependency inversion`: use interface to delegate work, and high-level class not depends on low-level class directly. So, it is very easy to extend functions in the future.
 
-*Singleton*: Use singleton fore better resource management and ensure that only one main service is running for the entire time.
+`Singleton`: Use singleton fore better resource management and ensure that only one main service is running for the entire time.
